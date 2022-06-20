@@ -16,10 +16,10 @@ const opts = {
 const metadatas = [
   "https://arweave.net/gG7FdZxl-y3YY0WreZxQ13plR0cv0B-lTaKyUooVXyo",
   "https://arweave.net/Jh1SGzfox90Qc_afMu7xSjFSrHQf0rGt2r0sdn8fnaU",
-  "https://arweave.net/gG7FdZxl-y3YY0WreZxQ13plR0cv0B-lTaKyUooVXyo",
-  "https://arweave.net/y5e5DJsiwH0s_ayfMwYk-SnrZtVZzHLQDSTZ5dNRUHA",
   "https://arweave.net/wfQozPMvH0q8doNto1cIkM4y0vanMIFohVPGOePzPeM",
-  "https://arweave.net/y5e5DJsiwH0s_ayfMwYk-SnrZtVZzHLQDSTZ5dNRUHA",
+  "https://arweave.net/gG7FdZxl-y3YY0WreZxQ13plR0cv0B-lTaKyUooVXyo",
+  "https://arweave.net/Jh1SGzfox90Qc_afMu7xSjFSrHQf0rGt2r0sdn8fnaU",
+  "https://arweave.net/wfQozPMvH0q8doNto1cIkM4y0vanMIFohVPGOePzPeM",
 ];
 function App(props) {
   const { publicKey } = useWallet();
