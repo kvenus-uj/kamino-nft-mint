@@ -1,9 +1,7 @@
 import * as anchor from"@project-serum/anchor";
 import { Connection, PublicKey } from '@solana/web3.js';
 import { Program, Provider, web3 } from '@project-serum/anchor';
-import { useDispatch, useSelector } from 'react-redux';
 import idl from './idl.json';
-import { useWallet } from "@solana/wallet-adapter-react";
 const { TOKEN_PROGRAM_ID, createAssociatedTokenAccountInstruction, getAssociatedTokenAddress, createInitializeMintInstruction, MINT_SIZE } = require('@solana/spl-token');
 
 
