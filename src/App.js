@@ -9,7 +9,7 @@ import { Connection, PublicKey } from '@solana/web3.js';
 import {
 	Program, Provider, web3
   } from '@project-serum/anchor';
-import { mintLootBox } from './utils';
+import { mintWarrior } from './utils';
 const opts = {
   preflightCommitment: "processed"
 }
@@ -123,10 +123,11 @@ function App(props) {
     }
     return metadatas;
   };
-	const getProvider = async () => {
+	const getProvider = async (network) => {
 		/* create the provider and return it to the caller */
 		/* network set to local network for now */
-		const network = "https://metaplex.devnet.rpcpool.com";
+		//const network = "https://api.testnet.solana.com";//"https://metaplex.devnet.rpcpool.com";
+   
 		const connection = new Connection(network, opts.preflightCommitment);
 	
 		const provider = new Provider(
@@ -136,13 +137,13 @@ function App(props) {
 	}
 
   async function nftMint() {
-    const provider = await getProvider();
+    const provider = await getProvider(connection);
     const min = 0;
     const max = 5;
     var rand = min + Math.random() * (max - min);
     rand = Math.floor(rand);
     const metadata = metadatas[rand];
-    mintLootBox(provider, wallet, metadata);
+    mintWarrior(provider, wallet, metadata);
   }
   return (
     <div className="main">
@@ -156,7 +157,7 @@ function App(props) {
             placeholder="Wallet address"
           />
         </Col>
-        <Col xs="12" md="12" lg="3" className="d-grid">
+        <Col xs="12" md="12" lg="2" className="d-grid">
           <Button
             variant={props.variant.toLowerCase()}
             type="submit"
@@ -166,7 +167,16 @@ function App(props) {
             Mint NFT from {props.title}{" "}
           </Button>
         </Col>
-        <Col lg="1"></Col>
+        <Col lg="2">
+        <Button
+            variant={props.variant.toLowerCase()}
+            type="submit"
+            onClick={getNfts}
+          >
+            {" "}
+            View Nft from {props.title}{" "}
+          </Button>
+        </Col>
         <Col lg="1">
           {view === "nft-grid" && (
             <Button
