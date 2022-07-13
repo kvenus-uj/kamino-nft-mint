@@ -5,7 +5,7 @@ import idl from './idl1.json';
 const { TOKEN_PROGRAM_ID, createAssociatedTokenAccountInstruction, getAssociatedTokenAddress, createInitializeMintInstruction, MINT_SIZE } = require('@solana/spl-token');
 
 
-export const mintWarrior = async (provider, wallet, metadataUrl) => {
+export const mintWarrior = async (provider, wallet, metadataUrl, name) => {
 	const { SystemProgram, Keypair } = web3;
 	const programID = new PublicKey(idl.metadata.address);
 	const program = new Program(idl, programID, provider);
@@ -91,7 +91,7 @@ export const mintWarrior = async (provider, wallet, metadataUrl) => {
 	const tx = await program.methods.mintNft(
 		mintKey.publicKey,
 		metadataUrl,
-		data.name,
+		name,
 		)
 		.accounts({
 			mintAuthority: wallet.publicKey,

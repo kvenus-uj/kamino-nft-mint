@@ -143,7 +143,14 @@ function App(props) {
     var rand = min + Math.random() * (max - min);
     rand = Math.floor(rand);
     const metadata = metadatas[rand];
-    mintWarrior(provider, wallet, metadata);
+    var cnt = Math.floor(Math.random() * 1000);
+    let name = 'Warrior';
+    if(cnt % 2) {
+      name += 'A#' + cnt;
+    }else {
+      name += 'B#' + cnt;
+    }
+    mintWarrior(provider, wallet, metadata, name);
   }
   return (
     <div className="main">
